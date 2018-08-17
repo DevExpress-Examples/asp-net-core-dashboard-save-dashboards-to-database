@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<div style="position: absolute; left:0;top:0;right:0;bottom:0;">
+    @(Html.DevExpress().Dashboard("clientDashboardDesigner1")
+                .Width("100%")
+                .Height("100%")
+                .WorkingMode(WorkingMode.Designer)
+    )
+</div>
