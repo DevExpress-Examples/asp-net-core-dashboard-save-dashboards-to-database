@@ -1,6 +1,10 @@
 # Dashboard for ASP.NET Core - How to save dashboards to a database
 
+*Files to look at*:
 
+* [Index.cshtml](./CS/SaveDashboardDB/Views/Home/Index.cshtml)
+* [DataBaseEditaleDashboardStorage.cs](./CS/SaveDashboardDB/Code/DataBaseEditaleDashboardStorage.cs)
+* [Startup.cs](./CS/SaveDashboardDB/Startup.cs#L30)
 
 <p>This example shows how to create a custom dashboard storage in ASP.NET Core application that allows storing dashboards in a data base. It uses the <a href="https://msdn.microsoft.com/en-us/library/system.data.sqlclient(v=vs.110).aspx">System.Data.SqlClient</a> members to connect and operate an MS SQL server data base. 
 <br><br>
