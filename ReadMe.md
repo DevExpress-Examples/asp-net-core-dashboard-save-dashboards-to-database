@@ -1,4 +1,4 @@
-# Dashboard for ASP.NET Core - How to save dashboards to a database
+# Dashboard for ASP.NET Core - How to load and save dashboards from/to a database
 
 *Files to look at*:
 
