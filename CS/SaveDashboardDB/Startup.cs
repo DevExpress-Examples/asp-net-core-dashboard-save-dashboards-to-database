@@ -14,6 +14,7 @@ using DevExpress.DashboardCommon;
 using DevExpress.DataAccess.Sql;
 using SaveDashboardDB.Code;
 using System.Configuration;
+using Microsoft.Extensions.Hosting;
 
 namespace SaveDashboardDB {
     public class Startup {
@@ -26,34 +27,36 @@ namespace SaveDashboardDB {
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services) {
             services
-                .AddMvc()
+                .AddDevExpressControls()
+                .AddControllersWithViews()
                 .AddDefaultDashboardController((configurator, serviceProvider) => {
                     configurator.SetConnectionStringsProvider(new DashboardConnectionStringsProvider(Configuration));
 
                     DataBaseEditaleDashboardStorage dataBaseDashboardStorage = new DataBaseEditaleDashboardStorage(Configuration.GetConnectionString("DashboardStorageConnection"));
                     configurator.SetDashboardStorage(dataBaseDashboardStorage);
                 });
-            services.AddDevExpressControls(settings => settings.Resources = ResourcesType.ThirdParty | ResourcesType.DevExtreme);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env) {
-            if(env.IsDevelopment()) {
-                app.UseBrowserLink();
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        {
+            if (env.IsDevelopment())
+            {
                 app.UseDeveloperExceptionPage();
-            } else {
-                app.UseExceptionHandler("/Home/Error");
             }
 
             app.UseStaticFiles();
             app.UseDevExpressControls();
+            app.UseRouting();
 
-            app.UseMvc(routes => {
-                routes.MapDashboardRoute();
-                routes.MapRoute(
+            app.UseEndpoints(endpoints => {
+                EndpointRouteBuilderExtension.MapDashboardRoute(endpoints, "api/dashboards");
+                endpoints.MapControllerRoute(
                     name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Home}/{action=Index}/{id?}"
+                );
             });
+
         }
     }
 }
