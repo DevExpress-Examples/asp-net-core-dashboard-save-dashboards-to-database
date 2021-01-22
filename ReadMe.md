@@ -18,7 +18,7 @@ Custom dashboard storage should implement either <strong>IDashboardStorage</stro
 <br>
 <strong>void SaveDashboard(string dashboardID, XDocument dashboard)</strong> - updates the dashboard with new settings by its id.
 <br><br>
-<strong>IEditableDashboardStorage</strong> inherits the <strong>IDashboardStorage</strong> interface and contains one additional method that allows adding new dashboards to the storage.
+<strong>IEditableDashboardStorage</strong> inherits the <strong>IDashboardStorage</strong> interface and contains an extra method that adds new dashboards to the storage.
 <br>
 <strong>string AddDashboard(XDocument dashboard, string dashboardName)</strong> - takes a dashboard definition with its caption, saves it to the data storage, and returns the ID of a new saved dashboard.
 <br><br>
@@ -28,6 +28,6 @@ See also: 
 <br>
 <a href="https://www.devexpress.com/Support/Center/p/T392813">How to save dashboards created in ASPxDashboard to a DataSet</a>
 <br>
-<a href="https://www.devexpress.com/Support/Center/p/T400693">MVCxDashboard - How to save dashboards to a data base</a>
+<a href="https://www.devexpress.com/Support/Center/p/T400693">MVCxDashboard - How to save dashboards to a database</a>
 <br><br>
-The approach from this example applies to the Dashboard Designer for ASP.NET Core starting with v2017 vol 2. For previous versions, refer to the <a href="https://www.devexpress.com/Support/Center/p/T373382">OBSOLETE - ASPxDashboardDesigner - How to save dashboards to a data base</a> example.
+The approach from this example applies to the Dashboard Designer for ASP.NET Core starting with v2017 vol 2. For previous versions, refer to the <a href="https://www.devexpress.com/Support/Center/p/T373382">OBSOLETE - ASPxDashboardDesigner - How to save dashboards to a database</a> example.
