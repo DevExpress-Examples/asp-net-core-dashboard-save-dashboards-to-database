@@ -22,7 +22,7 @@ Custom dashboard storage should implement either <strong>IDashboardStorage</stro
 <br>
 <strong>string AddDashboard(XDocument dashboard, string dashboardName)</strong> - takes a dashboard definition with its caption, saves it to the data storage, and returns the ID of a new saved dashboard.
 <br><br>
-This example also contains an SQL query and a database backup file, which you can use to recreate the database used in this example.
+Additionally, this example contains an SQL file ([SavedDashboards.sql](./CS/SaveDashboardDB/SavedDashboards.sql)), which can be used to recreate a database used in this example on your side. Do no forget to update the connection string in the <strong>appsettings.json</strong> file to make it valid in your environment.
 <br><br>
 See also: 
 <br>

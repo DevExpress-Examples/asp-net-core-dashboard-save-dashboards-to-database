@@ -1,20 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using DevExpress.AspNetCore;
+using DevExpress.DashboardAspNetCore;
+using DevExpress.DashboardCommon;
+using DevExpress.DashboardWeb;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using DevExpress.DashboardAspNetCore;
-using DevExpress.AspNetCore;
-using DevExpress.DashboardWeb;
-using System.IO;
-using DevExpress.DashboardCommon;
-using DevExpress.DataAccess.Sql;
-using SaveDashboardDB.Code;
-using System.Configuration;
 using Microsoft.Extensions.Hosting;
+using SaveDashboardDB.Models;
 
 namespace SaveDashboardDB {
     public class Startup {
@@ -32,16 +25,25 @@ namespace SaveDashboardDB {
                 .AddDefaultDashboardController((configurator, serviceProvider) => {
                     configurator.SetConnectionStringsProvider(new DashboardConnectionStringsProvider(Configuration));
 
-                    DataBaseEditaleDashboardStorage dataBaseDashboardStorage = new DataBaseEditaleDashboardStorage(Configuration.GetConnectionString("DashboardStorageConnection"));
+                    var dataBaseDashboardStorage = new DataBaseEditaleDashboardStorage(
+                        Configuration.GetConnectionString("DashboardStorageConnection"));
+
                     configurator.SetDashboardStorage(dataBaseDashboardStorage);
+
+                    DataSourceInMemoryStorage dataSourceStorage = new DataSourceInMemoryStorage();
+                    DashboardObjectDataSource objDataSource = new DashboardObjectDataSource("Object Data Source", typeof(SalesPersonData));
+
+                    objDataSource.DataMember = "GetSalesData";
+
+                    dataSourceStorage.RegisterDataSource("objectDataSource", objDataSource.SaveToXml());
+
+                    configurator.SetDataSourceStorage(dataSourceStorage);
                 });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-        {
-            if (env.IsDevelopment())
-            {
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env) {
+            if (env.IsDevelopment()) {
                 app.UseDeveloperExceptionPage();
             }
 
@@ -56,7 +58,6 @@ namespace SaveDashboardDB {
                     pattern: "{controller=Home}/{action=Index}/{id?}"
                 );
             });
-
         }
     }
 }

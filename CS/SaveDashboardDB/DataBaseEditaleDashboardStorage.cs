@@ -4,23 +4,18 @@ using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Xml.Linq;
 
-namespace SaveDashboardDB.Code
-{
+namespace SaveDashboardDB {
     public class DataBaseEditaleDashboardStorage : IEditableDashboardStorage {
+        private string connectionString;
 
-        string connectionString;
-
-        public DataBaseEditaleDashboardStorage(string connectionString)
-            : base() {
+        public DataBaseEditaleDashboardStorage(string connectionString) {
             this.connectionString = connectionString;
         }
 
-        string IEditableDashboardStorage.AddDashboard(XDocument document, string dashboardName) {
-            using(SqlConnection connection = new SqlConnection(connectionString)) {
+        public string AddDashboard(XDocument document, string dashboardName) {
+            using (SqlConnection connection = new SqlConnection(connectionString)) {
                 connection.Open();
                 MemoryStream stream = new MemoryStream();
                 document.Save(stream);
@@ -39,9 +34,8 @@ namespace SaveDashboardDB.Code
             }
         }
 
-
-        XDocument IDashboardStorage.LoadDashboard(string dashboardID) {
-            using(SqlConnection connection = new SqlConnection(connectionString)) {
+        public XDocument LoadDashboard(string dashboardID) {
+            using (SqlConnection connection = new SqlConnection(connectionString)) {
                 connection.Open();
                 SqlCommand GetCommand = new SqlCommand("SELECT  Dashboard FROM Dashboards WHERE ID=@ID");
                 GetCommand.Parameters.Add("ID", SqlDbType.Int).Value = Convert.ToInt32(dashboardID);
@@ -55,14 +49,14 @@ namespace SaveDashboardDB.Code
             }
         }
 
-        IEnumerable<DashboardInfo> IDashboardStorage.GetAvailableDashboardsInfo() {
+        public IEnumerable<DashboardInfo> GetAvailableDashboardsInfo() {
             List<DashboardInfo> list = new List<DashboardInfo>();
-            using(SqlConnection connection = new SqlConnection(connectionString)) {
+            using (SqlConnection connection = new SqlConnection(connectionString)) {
                 connection.Open();
                 SqlCommand GetCommand = new SqlCommand("SELECT ID, Caption FROM Dashboards");
                 GetCommand.Connection = connection;
                 SqlDataReader reader = GetCommand.ExecuteReader();
-                while(reader.Read()) {
+                while (reader.Read()) {
                     string ID = reader.GetInt32(0).ToString();
                     string Caption = reader.GetString(1);
                     list.Add(new DashboardInfo() { ID = ID, Name = Caption });
@@ -72,8 +66,8 @@ namespace SaveDashboardDB.Code
             return list;
         }
 
-        void IDashboardStorage.SaveDashboard(string dashboardID, XDocument document) {
-            using(SqlConnection connection = new SqlConnection(connectionString)) {
+        public void SaveDashboard(string dashboardID, XDocument document) {
+            using (SqlConnection connection = new SqlConnection(connectionString)) {
                 connection.Open();
                 MemoryStream stream = new MemoryStream();
                 document.Save(stream);
