@@ -6,7 +6,7 @@
 * [DataBaseEditaleDashboardStorage.cs](./CS/SaveDashboardDB/Code/DataBaseEditaleDashboardStorage.cs)
 * [Startup.cs](./CS/SaveDashboardDB/Startup.cs#L30)
 
-<p>This example shows how to create custom dashboard storage in an ASP.NET Core application and to store dashboards in a database. Here, you see <a href="https://msdn.microsoft.com/en-us/library/system.data.sqlclient(v=vs.110).aspx">System.Data.SqlClient</a> members that allow you to connect to an MS SQL server database and operate it.
+This example shows how to create custom dashboard storage in an ASP.NET Core application and to store dashboards in a database. Here, you see <a href="https://msdn.microsoft.com/en-us/library/system.data.sqlclient(v=vs.110).aspx">System.Data.SqlClient</a> members that allow you to connect to an MS SQL server database and operate it.
 <br><br>
 Custom dashboard storage should implement either <strong>IDashboardStorage</strong> or <strong>IEditableDashboardStorage</strong>.
 <br><br>
