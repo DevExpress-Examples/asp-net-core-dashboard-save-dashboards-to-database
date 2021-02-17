@@ -29,5 +29,7 @@ See also: 
 <a href="https://www.devexpress.com/Support/Center/p/T392813">How to save dashboards created in ASPxDashboard to a DataSet</a>
 <br>
 <a href="https://www.devexpress.com/Support/Center/p/T400693">MVCxDashboard - How to save dashboards to a database</a>
+<br>
+<a href="https://www.devexpress.com/Support/Center/p/T954359">MVC Dashboard - How to implement multi-tenant Dashboard architecture</a>
 <br><br>
 The approach from this example applies to the Dashboard Designer for ASP.NET Core starting with v2017 vol 2. For previous versions, refer to the <a href="https://www.devexpress.com/Support/Center/p/T373382">OBSOLETE - ASPxDashboardDesigner - How to save dashboards to a database</a> example.
