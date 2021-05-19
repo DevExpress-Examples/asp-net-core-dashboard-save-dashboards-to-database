@@ -25,6 +25,9 @@ To create custom dashboard storage, implement <strong>IDashboardStorage</strong>
 
 This example also contains an SQL file ([SavedDashboards.sql](./CS/SaveDashboardDB/SavedDashboards.sql)). You can use it to recreate a database on your side. Do not forget to update the connection string in the <strong>appsettings.json</strong> file to make it valid in your environment.
 
+## Documentation
+- [IDashboardStorage](https://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.IDashboardStorage)
+- [IEditableDashboardStorage](https://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.IEditableDashboardStorage)
 
 ## More Examples
 
