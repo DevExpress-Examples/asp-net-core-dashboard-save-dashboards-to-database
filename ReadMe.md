@@ -1,7 +1,7 @@
 *Files to look at*:
 
 - [Index.cshtml](./CS/SaveDashboardDB/Views/Home/Index.cshtml)
-- [DataBaseEditaleDashboardStorage.cs](./CS/SaveDashboardDB/Code/DataBaseEditaleDashboardStorage.cs)
+- [DataBaseEditaleDashboardStorage.cs](./CS/SaveDashboardDB/DataBaseEditaleDashboardStorage.cs)
 - [Startup.cs](./CS/SaveDashboardDB/Startup.cs#L30)
 
 # Dashboard for ASP.NET Core - How to load and save dashboards from/to a database
