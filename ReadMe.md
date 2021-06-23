@@ -32,6 +32,6 @@ This example also contains an SQL file ([SavedDashboards.sql](./CS/SaveDashboard
   
 ## More Examples
 
-- <a href="https://www.devexpress.com/Support/Center/p/T392813">How to save dashboards created in ASPxDashboard to a DataSet</a>
-- <a href="https://www.devexpress.com/Support/Center/p/T400693">MVCxDashboard - How to save dashboards to a database</a>
-- <a href="https://www.devexpress.com/Support/Center/p/T954359">MVC Dashboard - How to implement multi-tenant Dashboard architecture</a>
+- <a href="https://www.devexpress.com/Support/Center/p/T392813">Dashboard for Web Forms - How to save dashboards created in ASPxDashboard to a DataSet</a>
+- <a href="https://www.devexpress.com/Support/Center/p/T400693">Dashboard for MVC - How to load and save dashboards from/to a database </a>
+- <a href="https://www.devexpress.com/Support/Center/p/T954359">Dashboard for MVC - How to implement multi-tenant Dashboard architecture</a>
