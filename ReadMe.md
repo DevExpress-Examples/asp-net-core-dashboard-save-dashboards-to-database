@@ -2,7 +2,7 @@
 
 - [Index.cshtml](./CS/SaveDashboardDB/Views/Home/Index.cshtml)
 - [DataBaseEditaleDashboardStorage.cs](./CS/SaveDashboardDB/DataBaseEditaleDashboardStorage.cs)
-- [Startup.cs](./CS/SaveDashboardDB/Startup.cs#L30)
+- [Startup.cs](./CS/SaveDashboardDB/Startup.cs)
 
 # Dashboard for ASP.NET Core - How to load and save dashboards from/to a database
 
@@ -28,7 +28,8 @@ This example also contains an SQL file ([SavedDashboards.sql](./CS/SaveDashboard
 ## Documentation
 - [IDashboardStorage](https://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.IDashboardStorage)
 - [IEditableDashboardStorage](https://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.IEditableDashboardStorage)
-
+- [Prepare Dashboard Storage](https://docs.devexpress.com/Dashboard/16979/web-dashboard/dashboard-backend/prepare-dashboard-storage)
+  
 ## More Examples
 
 - <a href="https://www.devexpress.com/Support/Center/p/T392813">How to save dashboards created in ASPxDashboard to a DataSet</a>
