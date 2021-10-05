@@ -1,4 +1,5 @@
-﻿using DevExpress.AspNetCore;
+﻿using System;
+using DevExpress.AspNetCore;
 using DevExpress.DashboardAspNetCore;
 using DevExpress.DashboardCommon;
 using DevExpress.DashboardWeb;
@@ -21,24 +22,29 @@ namespace SaveDashboardDB {
         public void ConfigureServices(IServiceCollection services) {
             services
                 .AddDevExpressControls()
-                .AddControllersWithViews()
-                .AddDefaultDashboardController((configurator, serviceProvider) => {
-                    configurator.SetConnectionStringsProvider(new DashboardConnectionStringsProvider(Configuration));
+                .AddControllersWithViews();
 
-                    var dataBaseDashboardStorage = new DataBaseEditaleDashboardStorage(
-                        Configuration.GetConnectionString("DashboardStorageConnection"));
+            services.AddScoped<DashboardConfigurator>((IServiceProvider serviceProvider) => {
+                DashboardConfigurator configurator = new DashboardConfigurator();
 
-                    configurator.SetDashboardStorage(dataBaseDashboardStorage);
+                configurator.SetConnectionStringsProvider(new DashboardConnectionStringsProvider(Configuration));
 
-                    DataSourceInMemoryStorage dataSourceStorage = new DataSourceInMemoryStorage();
-                    DashboardObjectDataSource objDataSource = new DashboardObjectDataSource("Object Data Source", typeof(SalesPersonData));
+                var dataBaseDashboardStorage = new DataBaseEditaleDashboardStorage(
+                    Configuration.GetConnectionString("DashboardStorageConnection"));
 
-                    objDataSource.DataMember = "GetSalesData";
+                configurator.SetDashboardStorage(dataBaseDashboardStorage);
 
-                    dataSourceStorage.RegisterDataSource("objectDataSource", objDataSource.SaveToXml());
+                DataSourceInMemoryStorage dataSourceStorage = new DataSourceInMemoryStorage();
+                DashboardObjectDataSource objDataSource = new DashboardObjectDataSource("Object Data Source", typeof(SalesPersonData));
 
-                    configurator.SetDataSourceStorage(dataSourceStorage);
-                });
+                objDataSource.DataMember = "GetSalesData";
+
+                dataSourceStorage.RegisterDataSource("objectDataSource", objDataSource.SaveToXml());
+
+                configurator.SetDataSourceStorage(dataSourceStorage);
+
+                return configurator;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -52,7 +58,7 @@ namespace SaveDashboardDB {
             app.UseRouting();
 
             app.UseEndpoints(endpoints => {
-                EndpointRouteBuilderExtension.MapDashboardRoute(endpoints, "api/dashboards");
+                EndpointRouteBuilderExtension.MapDashboardRoute(endpoints, "api/dashboard", "DefaultDashboard");
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}"
