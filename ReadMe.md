@@ -3,11 +3,6 @@
 [![](https://img.shields.io/badge/Open_in_DevExpress_Support_Center-FF7200?style=flat-square&logo=DevExpress&logoColor=white)](https://supportcenter.devexpress.com/ticket/details/T830539)
 [![](https://img.shields.io/badge/📖_How_to_use_DevExpress_Examples-e9f6fc?style=flat-square)](https://docs.devexpress.com/GeneralInformation/403183)
 <!-- default badges end -->
-*Files to look at*:
-
-- [Index.cshtml](./CS/SaveDashboardDB/Views/Home/Index.cshtml)
-- [DataBaseEditaleDashboardStorage.cs](./CS/SaveDashboardDB/DataBaseEditaleDashboardStorage.cs)
-- [Startup.cs](./CS/SaveDashboardDB/Startup.cs)
 
 # Dashboard for ASP.NET Core - How to load and save dashboards from/to a database
 
@@ -30,6 +25,14 @@ To create custom dashboard storage, implement <strong>IDashboardStorage</strong>
 
 This example also contains an SQL file ([SavedDashboards.sql](./CS/SaveDashboardDB/SavedDashboards.sql)). You can use it to recreate a database on your side. Do not forget to update the connection string in the <strong>appsettings.json</strong> file to make it valid in your environment.
 
+<!-- default file list -->
+## Files to look at
+
+- [Index.cshtml](./CS/SaveDashboardDB/Views/Home/Index.cshtml)
+- [DataBaseEditaleDashboardStorage.cs](./CS/SaveDashboardDB/DataBaseEditaleDashboardStorage.cs)
+- [Startup.cs](./CS/SaveDashboardDB/Startup.cs)
+<!-- default file list end -->
+  
 ## Documentation
 - [IDashboardStorage](https://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.IDashboardStorage)
 - [IEditableDashboardStorage](https://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.IEditableDashboardStorage)
