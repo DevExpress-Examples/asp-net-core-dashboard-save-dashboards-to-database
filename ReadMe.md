@@ -7,39 +7,40 @@
 # Dashboard for ASP.NET Core - How to load and save dashboards from/to a database
 
 This example shows how to create custom dashboard storage in an ASP.NET Core application and to store dashboards in a database.
-To create custom dashboard storage, implement <strong>IDashboardStorage</strong> or <strong>IEditableDashboardStorage</strong>.
+To create custom dashboard storage, implement [IDashboardStorage](https://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.IDashboardStorage?p=netframework) or [IEditableDashboardStorage](https://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.IEditableDashboardStorage).
 
-<strong>IDashboardStorage</strong> allows you to open and edit dashboards from storage.
+This example also contains an SQL file ([SavedDashboards.sql](./CS/SaveDashboardDB/SavedDashboards.sql)). You can use it to recreate a database on your side. Do not forget to update the connection string in the **appsettings.json** file to make it valid in your environment.
 
-<strong>XDocument LoadDashboard(string dashboardID) </strong> - returns a dashboard by its ID in XDocument format.
+The following API is used in the example:
 
-<strong>IEnumerable<DashboardInfo> GetAvailableDashboardsInfo()</strong> - returns a list of dashboard IDs and Captions from data storage.
+- [LoadDashboard](https://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.IDashboardStorage.LoadDashboard(System.String)) 
 
-<strong>void SaveDashboard(string dashboardID, XDocument dashboard)</strong> - updates the dashboard with new settings by the dashboard's id.
+    Loads a dashboard with the specified ID in XDocument format from storage.
+- [GetAvailableDashboardsInfo](https://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.IDashboardStorage.GetAvailableDashboardsInfo) 
 
+    Returns a list of IDs and Captions of dashboards available in the data storage.
+- [SaveDashboard](https://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.IDashboardStorage.SaveDashboard(System.String-System.Xml.Linq.XDocument)) 
 
-<strong>IEditableDashboardStorage</strong> inherits the <strong>IDashboardStorage</strong> interface and contains an extra method that adds new dashboards to storage.
+    Saves the specified dashboard with new settings to the dashboard storage.
+- [AddDashboard](https://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.IEditableDashboardStorage.AddDashboard(System.Xml.Linq.XDocument-System.String)) 
 
-<strong>string AddDashboard(XDocument dashboard, string dashboardName)</strong> - obtains a dashboard definition with its caption, saves it to the data storage, and returns the ID of the newly saved dashboard.
+   Saves a dashboard definition and its caption to the data storage and returns the ID of the new saved dashboard.
 
-
-This example also contains an SQL file ([SavedDashboards.sql](./CS/SaveDashboardDB/SavedDashboards.sql)). You can use it to recreate a database on your side. Do not forget to update the connection string in the <strong>appsettings.json</strong> file to make it valid in your environment.
-
-<!-- default file list -->
-## Files to look at
+## Files to Review
 
 - [Index.cshtml](./CS/SaveDashboardDB/Views/Home/Index.cshtml)
 - [DataBaseEditaleDashboardStorage.cs](./CS/SaveDashboardDB/DataBaseEditaleDashboardStorage.cs)
 - [Startup.cs](./CS/SaveDashboardDB/Startup.cs)
-<!-- default file list end -->
   
 ## Documentation
-- [IDashboardStorage](https://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.IDashboardStorage)
-- [IEditableDashboardStorage](https://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.IEditableDashboardStorage)
-- [Prepare Dashboard Storage](https://docs.devexpress.com/Dashboard/16979/web-dashboard/dashboard-backend/prepare-dashboard-storage)
+
+* [Prepare Dashboard Storage](https://docs.devexpress.com/Dashboard/16979/web-dashboard/dashboard-backend/prepare-dashboard-storage)
+* [IDashboardStorage Interface](https://docs.devexpress.com/Dashboard/DevExpress.DashboardWeb.IDashboardStorage)
+* [Manage Multi-Tenancy](https://docs.devexpress.com/Dashboard/402924/web-dashboard/dashboard-backend/manage-multi-tenancy)
   
 ## More Examples
 
-- <a href="https://www.devexpress.com/Support/Center/p/T392813">Dashboard for Web Forms - How to save dashboards created in ASPxDashboard to a DataSet</a>
-- <a href="https://www.devexpress.com/Support/Center/p/T400693">Dashboard for MVC - How to load and save dashboards from/to a database </a>
-- <a href="https://www.devexpress.com/Support/Center/p/T954359">Dashboard for MVC - How to implement multi-tenant Dashboard architecture</a>
+- [Dashboard for Web Forms - How to Load and Save Dashboards from/to a Database](https://github.com/DevExpress-Examples/web-dashboard-custom-storage)
+- [Dashboard for Web Forms - How to Save Dashboards Created in ASPxDashboard to a DataSet](https://github.com/DevExpress-Examples/aspxdashboard-how-to-save-dashboards-created-by-end-users-to-a-dataset-t392813)
+- [Dashboard for MVC - How to Load and Save Dashboards from/to a Database](https://github.com/DevExpress-Examples/mvc-dashboard-how-to-load-and-save-dashboards-from-to-a-database-t400693)
+- [Dashboard for MVC - How to Implement Multi-Tenant Dashboard Architecture](https://github.com/DevExpress-Examples/DashboardUserBasedMVC)
