@@ -1,4 +1,4 @@
-﻿using DevExpress.DashboardWeb;
+using DevExpress.DashboardWeb;
 using System;
 using System.Collections.Generic;
 using System.Data;

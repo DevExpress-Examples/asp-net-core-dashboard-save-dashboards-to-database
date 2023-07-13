@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using DevExpress.AspNetCore;
 using DevExpress.DashboardAspNetCore;
 using DevExpress.DashboardCommon;
