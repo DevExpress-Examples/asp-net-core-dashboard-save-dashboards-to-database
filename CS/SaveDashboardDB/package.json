@@ -4,8 +4,8 @@
   "private": true,
   "license": "MIT",
   "devDependencies": {
-    "devextreme-dist": "23.1-next",
-    "@devexpress/analytics-core": "23.1-next",
-    "devexpress-dashboard": "23.1-next"
+    "devextreme-dist": "23.1-stable",
+    "@devexpress/analytics-core": "23.1-stable",
+    "devexpress-dashboard": "23.1-stable"
   }
 }
