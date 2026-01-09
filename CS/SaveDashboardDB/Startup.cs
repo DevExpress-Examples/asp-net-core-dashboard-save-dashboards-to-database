@@ -29,7 +29,7 @@ namespace SaveDashboardDB {
 
                 configurator.SetConnectionStringsProvider(new DashboardConnectionStringsProvider(Configuration));
 
-                var dataBaseDashboardStorage = new DataBaseEditaleDashboardStorage(
+                var dataBaseDashboardStorage = new DataBaseEditableDashboardStorage(
                     Configuration.GetConnectionString("DashboardStorageConnection"));
 
                 configurator.SetDashboardStorage(dataBaseDashboardStorage);

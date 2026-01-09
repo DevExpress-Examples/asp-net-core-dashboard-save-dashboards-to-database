@@ -29,7 +29,7 @@ The following API is used in the example:
 ## Files to Review
 
 - [Index.cshtml](./CS/SaveDashboardDB/Views/Home/Index.cshtml)
-- [DataBaseEditaleDashboardStorage.cs](./CS/SaveDashboardDB/DataBaseEditaleDashboardStorage.cs)
+- [DataBaseEditableDashboardStorage.cs](./CS/SaveDashboardDB/DataBaseEditableDashboardStorage.cs)
 - [Startup.cs](./CS/SaveDashboardDB/Startup.cs)
   
 ## Documentation
